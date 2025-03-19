@@ -7,6 +7,14 @@ from rest_framework import status
 from rest_framework.response import Response
 
 
+from django.http import HttpResponse
+from django.template import loader
+
+def index(_):
+  template = loader.get_template('index.html')
+  return HttpResponse(template.render())
+
+
 # Create your views here.
 
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
